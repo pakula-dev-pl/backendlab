@@ -13,7 +13,15 @@ class AddressTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('address', function (Blueprint $table) {
+
+            $table->id();
+            $table->string('street_name', 190);
+            $table->unsignedBigInteger('street_number');
+
+            $table->softDeletes();
+
+        });
     }
 
     /**

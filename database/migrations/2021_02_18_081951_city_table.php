@@ -13,7 +13,14 @@ class CityTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('city', function (Blueprint $table) {
+
+            $table->id();
+            $table->string('city_name', 190);
+
+            $table->softDeletes();
+
+        });
     }
 
     /**
