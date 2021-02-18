@@ -46,11 +46,15 @@ class CustomerController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function show($id)
     {
-        //
+        $client = $this->clientRepository->find($id);
+        if ($client == null) {
+            abort(404);
+        }
+        return ["data" => $client];
     }
 
     /**
