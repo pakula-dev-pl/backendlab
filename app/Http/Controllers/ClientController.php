@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class ClientController extends Controller
 {
     /**
      * @var ClientRepositoryInterface
