@@ -13,7 +13,19 @@ class ClientTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('client', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->unsignedBigInteger('external_id');
+            $table->string('city', 190);
+            $table->string('street', 190);
+            $table->string('country', 100);
+            $table->string('street_number', 20);
+            $table->string('postal_code', 6);
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
