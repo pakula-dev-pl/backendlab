@@ -25,11 +25,11 @@ class CustomerUpdateRequest extends FormRequest
     {
         return [
             "name" => "required|min:3|max:190",
-            "city" => "max:190",
-            "street" => "max:190",
-            "street_no" => "max:20",
-            "country" => "max:100",
-            "postal_code" => "max:6"
+            "city" => "min:3|max:190",
+            "street" => "min:3|max:190",
+            "street_no" => "min:3|max:20",
+            "country" => "min:3|max:100",
+            "postal_code" => "min:3|max:6"
         ];
     }
 }
