@@ -13,4 +13,9 @@ class client extends Model
 
     protected $table = "client";
 
+    protected $hidden = ["external_id"];
+
+    protected $fillable = ["name", "city", "street", "country", "street_number", "postal_code", "user_id"];
+
+
 }
