@@ -25,6 +25,8 @@ class ClientTable extends Migration
             $table->string('postal_code', 6);
             $table->unsignedBigInteger('user_id');
 
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
             $table->softDeletes();
         });
