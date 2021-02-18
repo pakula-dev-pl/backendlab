@@ -55,4 +55,16 @@ class BaseRepository implements BaseRepositoryInterface
             ->where("user_id", Auth::id())
             ->get();
     }
+
+    public function update(array $data, Model $model)
+    {
+        $this->model->where("id", $model->id)
+            ->update($data);
+    }
+
+    public function delete(Model $model)
+    {
+        $this->model->where("id", $model->id)
+            ->delete();
+    }
 }

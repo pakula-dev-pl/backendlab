@@ -13,7 +13,7 @@ class ClientCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,6 @@ class ClientCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
             "name" => "required|min:3|max:190",
             "city" => "min:3|max:190",
             "street" => "min:3|max:190",

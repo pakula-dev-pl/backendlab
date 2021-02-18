@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientCreateRequest;
+use App\Http\Requests\ClientUpdateRequest;
+use App\Models\Client;
 use App\Repositories\Interfaces\ClientRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -34,39 +37,42 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param ClientCreateRequest $request
+     * @return array
      */
-    public function store(Request $request)
+    public function store(ClientCreateRequest $request)
     {
-        //
+        $client = $this->clientRepository->store(
+            $request->validated()
+        );
+
+        return [
+            "status" => "success",
+            "data" => $client
+        ];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Client $client
      * @return array
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        $client = $this->clientRepository->find($id);
-        if ($client == null) {
-            abort(404);
-        }
         return ["data" => $client];
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param ClientUpdateRequest $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return array
      */
-    public function update(Request $request, $id)
+    public function update(ClientUpdateRequest $request, Client $client)
     {
-        //
+        $this->clientRepository->update($request->validated(), $client);
     }
 
     /**
@@ -75,7 +81,7 @@ class ClientController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
         //
     }
