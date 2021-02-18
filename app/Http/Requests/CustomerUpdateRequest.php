@@ -25,7 +25,7 @@ class CustomerUpdateRequest extends FormRequest
     {
         return [
             "name" => "required|min:3|max:190",
-            "external_id" => "exists:customer:id",
+            "external_id" => "exists:customer,id",
             "city" => "required|min:3|max:190",
             "street" => "required|min:3|max:190",
             "country" => "required|min:3|max:100",
