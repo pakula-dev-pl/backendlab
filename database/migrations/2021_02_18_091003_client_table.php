@@ -13,7 +13,7 @@ class ClientTable extends Migration
      */
     public function up()
     {
-        Schema::create('file', function (Blueprint $table) {
+        Schema::create('client', function (Blueprint $table) {
             $table->id();
 
             $table->string('name', 190);
@@ -23,6 +23,7 @@ class ClientTable extends Migration
             $table->string('country', 100);
             $table->string('street_number', 20);
             $table->string('postal_code', 6);
+            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();
